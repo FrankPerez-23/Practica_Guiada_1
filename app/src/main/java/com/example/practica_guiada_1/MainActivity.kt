@@ -1,10 +1,10 @@
 package com.example.practica_guiada_1
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.practica_guiada_1.databinding.ActivityMainBinding
 import com.example.practica_guiada_1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -33,7 +33,9 @@ class MainActivity : AppCompatActivity() {
     private fun evaluarEstudiante() {
         // Sintaxis Kotlin: Declaración de variables inmutables (val)
         val nombre = binding.etNombre.text.toString().trim()
+        val apellido = binding.etApellido.text.toString().trim()
         val notaTexto = binding.etNota.text.toString().trim()
+        val tvResultado = binding.tvResultado.toString().trim()
 
         // Control de flujo: Estructura condicional if / else
         if (nombre.isEmpty() || notaTexto.isEmpty()) {
@@ -50,14 +52,24 @@ class MainActivity : AppCompatActivity() {
         }
 
         //Estructura condicional para determinar estado del estudiante
-        val estado = if (nota>= 10.5) "APROBADO" else "DESAPROBADO"
+
+        var estado = ""
+
+        if (nota>= 10.5){
+            estado = "APROBADO"
+            binding.tvResultado.setTextColor(Color.GREEN)
+        } else {
+            estado = "DESAPROBADO"
+            binding.tvResultado.setTextColor(Color.RED)
+        }
 
         //Interpolación de String ($nombre, $nota, $estado)
-        binding.tvResultado.text = "Estudiante: $nombre\nNota: $nota\nEstado: $estado"
+        binding.tvResultado.text = "Estudiante: $nombre $apellido\nNota: $nota\nEstado: $estado"
     }
 
     private fun navegarADetalle() {
-         val nombre = binding.etNombre.text.toString().trim()
+        val nombre = binding.etNombre.text.toString().trim()
+        val apellido = binding.etApellido.text.toString().trim()
         if (nombre.isEmpty()){
             Toast.makeText(this, "Escriba un nombre para enviar", Toast.LENGTH_SHORT).show()
             return
@@ -66,6 +78,7 @@ class MainActivity : AppCompatActivity() {
         // Creación de un Intent explicito para cambiar de pantalla
         val intent = Intent(this, DetailActivity::class.java).apply {
             putExtra( "EXTRA_NOMBRE", nombre)
+            putExtra("EXTRA_APELLIDO", apellido)
         }
         startActivity(intent)
     }

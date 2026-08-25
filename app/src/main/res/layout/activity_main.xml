@@ -34,6 +34,14 @@
         android:inputType="textPersonName"
         android:layout_marginBottom="12dp" />
 
+    <EditText
+        android:id="@+id/etApellido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el apellido del estudiante"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="20dp" />
+
     <!--Campo de texto para ingresar nota-->
     <EditText
         android:id="@+id/etNota"
