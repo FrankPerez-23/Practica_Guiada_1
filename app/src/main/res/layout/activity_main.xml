@@ -44,10 +44,26 @@
 
     <!--Campo de texto para ingresar nota-->
     <EditText
-        android:id="@+id/etNota"
+        android:id="@+id/etNota1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese nota final (0-20)"
+        android:hint="Ingrese primera nota (0-20)"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="20dp" />
+
+    <EditText
+        android:id="@+id/etNota2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese segunda nota (0-20)"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="20dp" />
+
+    <EditText
+        android:id="@+id/etNota3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese tercera nota (0-20)"
         android:inputType="numberDecimal"
         android:layout_marginBottom="20dp" />
 

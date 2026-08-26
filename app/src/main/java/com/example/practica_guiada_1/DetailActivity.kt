@@ -17,7 +17,10 @@ class DetailActivity : AppCompatActivity() {
         //Obtener el dato pasado desde MainActivity
         val nombreRecibido = intent.getStringExtra("EXTRA_NOMBRE") ?: "Invitado"
         val apellidoRecibido = intent.getStringExtra("EXTRA_APELLIDO") ?: ""
+        val notaRecibida = intent.getStringExtra("EXTRA_NOTA") ?: ""
+        val estadoRecibido = intent.getStringExtra("EXTRA_ESTADO") ?: ""
 
         binding.tvTituloDetalle.text = "¡Bienvenido a la pantalla de detalle, $nombreRecibido $apellidoRecibido"
+        binding.tvResulActivity2.text = "Nota: $notaRecibida\nEstado: $estadoRecibido"
     }
 }
